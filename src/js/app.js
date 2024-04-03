@@ -37,8 +37,7 @@ function render(variables = {}) {
           <h1>${variables.name === null ? "Lucy" : variables.name} ${variables.lastName === null ? "Melero" : variables.lastName}</h1>
           <h2>${variables.role === null ? "web developer" : variables.role}</h2>
           <h3>${variables.city === null ? "munich" : variables.city}, ${variables.country === null ? "spain" : variables.country}</h3>
-          <ul ${
-            variables.socialMediaPosition === "right" ? 'class="position-right"' : 'class="position-left"'}>
+          <ul class="${variables.socialMediaPosition}">
             <li><a href="${variables.twitter === null ? 'https://twitter.com/4geeksacademy' : variables.twitter}"><i class="fab fa-twitter"></i></a></li>
             <li><a href="${variables.github === null ? 'https://twitter.com/4geeksacademy' : variables.github}"><i class="fab fa-github"></i></a></li>
             <li><a href="${variables.linkedin === null ? 'https://twitter.com/4geeksacademy' : variables.linkedin}"><i class="fab fa-linkedin"></i></a></li>
@@ -47,7 +46,7 @@ function render(variables = {}) {
         </div>
     `;
 }
-
+  
 /**
  * Don't change any of the lines below, here is where we do the logic for the dropdowns
  */
