@@ -1,3 +1,4 @@
+import { left, right } from "@popperjs/core";
 import "../style/index.css";
 
 /**
@@ -33,14 +34,15 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${variables.name === null ? "Lucy" : variables.name} ${variables.lastName === null ? "Melero" : variables.lastName}</h1>
+          <h2>${variables.role === null ? "web developer" : variables.role}</h2>
+          <h3>${variables.city === null ? "munich" : variables.city}, ${variables.country === null ? "spain" : variables.country}</h3>
+          <ul ${
+            variables.socialMediaPosition === "right" ? 'class="position-right"' : 'class="position-left"'}>
+            <li><a href="${variables.twitter === null ? 'https://twitter.com/4geeksacademy' : variables.twitter}"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="${variables.github === null ? 'https://twitter.com/4geeksacademy' : variables.github}"><i class="fab fa-github"></i></a></li>
+            <li><a href="${variables.linkedin === null ? 'https://twitter.com/4geeksacademy' : variables.linkedin}"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="${variables.instagram === null ? 'https://twitter.com/4geeksacademy' : variables.instagram}"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
